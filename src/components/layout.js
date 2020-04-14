@@ -8,13 +8,28 @@ import { Helmet } from "react-helmet"
 const Layout = ({ children }) => {
   const { title, slogan } = useSiteMetadata()
   return (
-    <div id="app">
+    <div
+      id="app"
+      css={css`
+        display: grid;
+        grid-template-rows: 4em minmax(calc(100vh - 10em), auto) 6em;
+      `}
+    >
       <Global
         styles={css`
           @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
           body {
+            margin: 0;
             font-family: "Roboto", sans-serif;
             font-weight: 300;
+          }
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-weight: 400;
           }
         `}
       />
@@ -24,9 +39,26 @@ const Layout = ({ children }) => {
         <meta charSet="utf-8" />
         <meta name="description" content={slogan} />
       </Helmet>
-      <Header />
-      {children}
-      <Footer />
+      <Header>
+        <div className="title">{title}</div>
+        <div className="slogan">{slogan}</div>
+      </Header>
+      <main
+        css={css`
+          padding: 1em;
+        `}
+      >
+        {children}
+      </main>
+      <Footer>
+        <div
+          css={css`
+            font-size: 0.75em;
+          `}
+        >
+          © {new Date().getFullYear()}, Guttenbergovitz
+        </div>
+      </Footer>
     </div>
   )
 }
