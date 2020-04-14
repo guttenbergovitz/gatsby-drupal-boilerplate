@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
+import { TextParagraph } from "./paragraphs/paragraph-text"
 
 export const query = graphql`
   query($url: String!) {
@@ -9,6 +10,7 @@ export const query = graphql`
       relationships {
         paragraphs: field_paragraphs {
           type: __typename
+          ...ParagraphText
         }
       }
     }
