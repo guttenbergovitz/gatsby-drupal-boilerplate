@@ -7,5 +7,16 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://boilerplate-drupal.loc/`,
+        apiBase: `jsonapi`,
+        basicAuth: {
+          username: `admin`,
+          password: `admin`,
+        },
+      },
+    },
   ],
 }

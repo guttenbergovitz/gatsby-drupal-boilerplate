@@ -4,6 +4,7 @@ import Header from "./header"
 import Footer from "./footer"
 import { Global, css } from "@emotion/core"
 import { Helmet } from "react-helmet"
+import { Link } from "gatsby"
 
 const Layout = ({ children }) => {
   const { title, slogan } = useSiteMetadata()
@@ -40,7 +41,16 @@ const Layout = ({ children }) => {
         <meta name="description" content={slogan} />
       </Helmet>
       <Header>
-        <div className="title">{title}</div>
+        <div className="title">
+          <Link
+            to=""
+            css={css`
+              text-decoration: none;
+            `}
+          >
+            {title}
+          </Link>
+        </div>
         <div className="slogan">{slogan}</div>
       </Header>
       <main
