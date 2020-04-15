@@ -7,6 +7,7 @@ export const PunchlineParagraph = ({ node }) => {
 
 export const fragment = graphql`
   fragment ParagraphPunchline on paragraph__punchline {
+    id
     punchline: field_punchline
   }
 `

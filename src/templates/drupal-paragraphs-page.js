@@ -9,6 +9,7 @@ import { ImagesParagraph } from "./paragraphs/paragraph-images"
 export const query = graphql`
   query($url: String!) {
     node: nodeParagraphsPage(path: { alias: { eq: $url } }) {
+      id
       title
       relationships {
         paragraphs: field_paragraphs {

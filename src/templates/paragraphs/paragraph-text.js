@@ -7,6 +7,7 @@ export const TextParagraph = ({ node }) => {
 
 export const fragment = graphql`
   fragment ParagraphText on paragraph__text {
+    id
     text: field_text {
       processed
     }
