@@ -8,7 +8,7 @@ const Header = ({ children }) => {
         background-color: lightgray;
         display: flex;
         justify-content: space-between;
-        padding: 1em;
+        padding: 1em calc((100vw - 72em) / 2);
       `}
     >
       {children}
