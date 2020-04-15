@@ -2,10 +2,6 @@ import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 
-import { TextParagraph } from "./paragraphs/paragraph-text"
-import { PunchlineParagraph } from "./paragraphs/paragraph-punchline"
-import { ImagesParagraph } from "./paragraphs/paragraph-images"
-
 import {getParagraph} from "./paragraphs/paragraphsHelper"
 
 export const query = graphql`
@@ -20,6 +16,8 @@ export const query = graphql`
           ...ParagraphText
           ...ParagraphPunchline
           ...ParagraphImages
+          ...ParagraphGallery
+          ...ParagraphRemoteVideo
         }
       }
     }

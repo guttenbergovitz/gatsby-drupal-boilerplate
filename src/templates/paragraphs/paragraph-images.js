@@ -7,7 +7,7 @@ export const ImagesParagraph = ({ node }) => {
   return (
     <div css={css`
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-gap: 1em;
       `}>
       {node.relationships.images.map( image => (
