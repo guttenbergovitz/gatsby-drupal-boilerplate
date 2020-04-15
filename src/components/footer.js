@@ -6,7 +6,7 @@ const Footer = ({ children }) => {
     <footer
       css={css`
         background-color: lightgray;
-        padding: 1em;
+        padding: 1em calc((100vw - 72em) / 2);
       `}
     >
       {children}

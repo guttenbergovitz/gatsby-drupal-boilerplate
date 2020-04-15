@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -22,6 +22,7 @@
     "gatsby-plugin-emotion": "^4.2.1",
     "gatsby-plugin-react-helmet": "^3.2.2",
     "gatsby-plugin-sass": "^2.2.1",
+    "gatsby-source-drupal": "^3.4.3",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
