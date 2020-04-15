@@ -2,7 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 
 export const ImagesParagraph = ({ node }) => {
-  return <div>{node.relationships.images.map()}</div>
+  return (
+    node.relationships.images.map( image => (
+      <img src={image.file.path}/>
+    ))
+  )
+  // return <pre>{JSON.stringify(node.relationships.images, null, 2)}</pre>
 }
 
 export const fragment = graphql`
@@ -12,7 +17,7 @@ export const fragment = graphql`
       images: field_images {
         id
         file: localFile {
-          path: relativePath
+          path: absolutePath
         }
       }
     }

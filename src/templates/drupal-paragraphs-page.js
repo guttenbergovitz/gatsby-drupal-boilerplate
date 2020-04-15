@@ -6,6 +6,8 @@ import { TextParagraph } from "./paragraphs/paragraph-text"
 import { PunchlineParagraph } from "./paragraphs/paragraph-punchline"
 import { ImagesParagraph } from "./paragraphs/paragraph-images"
 
+import {getParagraph} from "./paragraphs/paragraphsHelper"
+
 export const query = graphql`
   query($url: String!) {
     node: nodeParagraphsPage(path: { alias: { eq: $url } }) {
@@ -13,6 +15,7 @@ export const query = graphql`
       title
       relationships {
         paragraphs: field_paragraphs {
+          __typename
           type: __typename
           ...ParagraphText
           ...ParagraphPunchline
@@ -23,14 +26,13 @@ export const query = graphql`
   }
 `
 
+
 const DrupalParagraphsPage = ({ data: { node } }) => {
-  const paragraphs = node.relationships.paragraphs
+  const paragraphs = node.relationships.paragraphs.map(getParagraph)
   return (
     <Layout>
       <h1>{node.title}</h1>
-      {paragraphs.map(paragraph => (
-        <pre>{JSON.stringify(paragraph, null, 2)}</pre>
-      ))}
+      {paragraphs}
     </Layout>
   )
 }
